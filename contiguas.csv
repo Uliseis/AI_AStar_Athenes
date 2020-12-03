@@ -1,0 +1,53 @@
+Estación Inicial;Destino1;Destino 2;Destino 3;Destino 4
+Kiffisia;KAT
+KAT;Maroussi;Kiffisia
+Maroussi;Neratziotissa;KAT
+Neratziotissa;Irini;Maroussi
+Irini;Iriaklio;Neratziotissa
+Iriaklio;Nea lonia;Irini
+Nea lonia;Pefkakia;Iriaklio
+Pefkakia;Perissas;Nea lonia
+Perissas;Ano Patisia;Pefkakia
+Ano Patisia;Aghios Eleftherios;Perissas
+Aghios Eleftherios;Katio Partisia;Ano Patisia
+Katio Partisia;Aghios Nikolaos;Aghios Eleftherios
+Aghios Nikolaos;Attiki;Katio Partisia
+Attiki;Victoria;Aghios Nikolaos;Sepolia;Larissa Station
+Victoria;Omonia;Attiki
+Omonia;Monastiraki;Victoria;Metaxaourghio;Panepistimio
+Monastiraki;Thissio;Omonia;Kerameikos;Syntagma
+Thissio;Petralona;Monastiraki
+Petralona;Tavros;Thissio
+Tavros;Kallithea;Petralona
+Kallithea;Moschato;Tavros
+Moschato;Faliro;Kallithea
+Faliro;Piraeus;Moschato
+Piraeus;Faliro
+Sepolia;Attiki;Aghios Antonios
+Larissa Station;Attiki;Metaxaourghio
+Metaxaourghio;Larissa Station;Omonia
+Panepistimio;Omonia;Syntagma;;;;;;;;;;
+Syntagma;Panepistimio;Akropoli;Evangelismos;Monastiriaki
+Akropoli;Syntagma;Sygrou - fix
+Sygrou - fix;Akropoli;Neos Kosmos
+Neos Kosmos;Sygrou - fix;Aghios Loannis
+Aghios Loannis;Neos Kosmos;Dafni
+Dafni;Aghios Loannis;Aghios Dimitrios
+Aghios Dimitrios;Dafni
+Kerameikos;Monastiraki;Eleonas
+Eleonas;Kerameikos;Egaleo
+Egaleo;Eleonas
+Evangelismos;Syntagma;Megaro Moussikis
+Megaro Moussikis;Evangelismos;Ambelokipi
+Ambelokipi;Megaro Moussikis;Panormou
+Panormou;Ambelokipi;Katehaki
+Katehaki;Panormou;Ethniki Amyna
+Ethniki Amyna;Katehaki;Holargos
+Holargos;Ethniki Amyna;Nomismatokopio
+Nomismatokopio;Holargos;Aghia Paraskevi
+Aghia Paraskevi;Nomismatokopio;Halandri
+Halandri;Aghia Paraskevi;Pallini
+Pallini;Halandri;Paiania - Kantza
+Paiania - Kantza;Pallini;Koropi
+Koropi;Paiania - Kantza;Airport
+Airport;Koropi
