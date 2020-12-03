@@ -1,4 +1,4 @@
-import networkx as nx;
+import networkx as nx
 import csv
 
 distrows = list()
@@ -9,13 +9,10 @@ with open("distancias.csv", "r") as file1:
         distrows.append(row)
 
 for k in len(distrows):  # Añade al dictionary
-    estinicial = distrows[k][0]
-    estfinal = distrows[k][1]
+    estfinal = distrows[k][0]
+    estinicial = distrows[k][1]
     distap = int(distrows[k][2])
-    listaestaciones = list()
-    for n in len (distrows):
-
-    distancias[estfinal] = [estinicial, distap]
+    distancias[estfinal].append([estinicial, distap])
 
 frows = list()
 estrows = list()
