@@ -1,20 +1,19 @@
-Estación Inicial;Destino1;Destino 2;Destino 3;Destino 4
 Kiffisia;KAT
 KAT;Maroussi;Kiffisia
 Maroussi;Neratziotissa;KAT
 Neratziotissa;Irini;Maroussi
-Irini;Iriaklio;Neratziotissa
-Iriaklio;Nea lonia;Irini
-Nea lonia;Pefkakia;Iriaklio
-Pefkakia;Perissas;Nea lonia
-Perissas;Ano Patisia;Pefkakia
-Ano Patisia;Aghios Eleftherios;Perissas
-Aghios Eleftherios;Katio Partisia;Ano Patisia
-Katio Partisia;Aghios Nikolaos;Aghios Eleftherios
-Aghios Nikolaos;Attiki;Katio Partisia
+Irini;Iraklio;Neratziotissa
+Iraklio;Nea Ionia;Irini
+Nea Ionia;Pefkakia;Iraklio
+Pefkakia;Perissos;Nea Ionia
+Perissos;Ano Patissia;Pefkakia
+Ano Patissia;Aghios Eleftherios;Perissos
+Aghios Eleftherios;Kato Patissia;Ano Patissia
+Kato Patissia;Aghios Nikolaos;Aghios Eleftherios
+Aghios Nikolaos;Attiki;Kato Patissia
 Attiki;Victoria;Aghios Nikolaos;Sepolia;Larissa Station
 Victoria;Omonia;Attiki
-Omonia;Monastiraki;Victoria;Metaxaourghio;Panepistimio
+Omonia;Monastiraki;Victoria;Metaxourghio;Panepistimio
 Monastiraki;Thissio;Omonia;Kerameikos;Syntagma
 Thissio;Petralona;Monastiraki
 Petralona;Tavros;Thissio
@@ -23,20 +22,21 @@ Kallithea;Moschato;Tavros
 Moschato;Faliro;Kallithea
 Faliro;Piraeus;Moschato
 Piraeus;Faliro
+Aghios Antonios;Sepolia
 Sepolia;Attiki;Aghios Antonios
-Larissa Station;Attiki;Metaxaourghio
-Metaxaourghio;Larissa Station;Omonia
+Larissa Station;Attiki;Metaxourghio
+Metaxourghio;Larissa Station;Omonia
 Panepistimio;Omonia;Syntagma;;;;;;;;;;
 Syntagma;Panepistimio;Akropoli;Evangelismos;Monastiriaki
-Akropoli;Syntagma;Sygrou - fix
-Sygrou - fix;Akropoli;Neos Kosmos
-Neos Kosmos;Sygrou - fix;Aghios Loannis
-Aghios Loannis;Neos Kosmos;Dafni
-Dafni;Aghios Loannis;Aghios Dimitrios
+Akropoli;Syntagma;Sygrou-Fix
+Sygrou-Fix;Akropoli;Neos Kosmos
+Neos Kosmos;Sygrou-Fix;Aghios Ioannis
+Aghios Ioannis;Neos Kosmos;Dafni
+Dafni;Aghios Ioannis;Aghios Dimitrios
 Aghios Dimitrios;Dafni
-Kerameikos;Monastiraki;Eleonas
-Eleonas;Kerameikos;Egaleo
 Egaleo;Eleonas
+Eleonas;Kerameikos;Egaleo
+Kerameikos;Monastiraki;Eleonas
 Evangelismos;Syntagma;Megaro Moussikis
 Megaro Moussikis;Evangelismos;Ambelokipi
 Ambelokipi;Megaro Moussikis;Panormou
@@ -47,7 +47,8 @@ Holargos;Ethniki Amyna;Nomismatokopio
 Nomismatokopio;Holargos;Aghia Paraskevi
 Aghia Paraskevi;Nomismatokopio;Halandri
 Halandri;Aghia Paraskevi;Pallini
-Pallini;Halandri;Paiania - Kantza
+Doukissis Plakentias;Halandri;Pallini
+Pallini;Doukissis Plakentias;Paiania - Kantza
 Paiania - Kantza;Pallini;Koropi
 Koropi;Paiania - Kantza;Airport
 Airport;Koropi
