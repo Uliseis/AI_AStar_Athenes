@@ -1,17 +1,17 @@
 import networkx as nx
 import csv
+from queue import PriorityQueue
 
 frows = list()
 estrows = list()
 distrows = list()
 distancias = dict()
 metro = nx.Graph()
-lineaActual = 0
 TRANSBORDO = 7
 
 def definirestructuras ():
     with open("tiempos.csv", "r") as file1:
-        reader1 = csv.reader(file1, delimiter=";")
+        reader1 = csv.reader(file1, delimiter=" ")
         for row in reader1:
             frows.append(row)
 
@@ -55,9 +55,9 @@ def buscarestaciones (estacionfin, estacionini):
             break
     return res
 
-def h(intermedia, destino):
+def h(intermedia, destino, lineaAct):
     n = buscarestaciones(destino, intermedia)
-    if not metro[intermedia]['linea'] in metro[destino]['linea']:
+    if lineaAct != lineaCompartida(intermedia, destino):
         n = n + TRANSBORDO;
     return n
 
@@ -72,15 +72,41 @@ def lineaCompartida(inicio, final):
 def g(origen, intermedia, lineaActual):
     coste = metro.edges[origen][intermedia]['time']
     listaLineas = metro[origen, intermedia]['linea']
-    if not lineaActual in listaLineas:
+    if lineaActual != 0 and not lineaActual in listaLineas:
         coste = coste + TRANSBORDO
     return coste
 
-def f(origen, intermedia, destino, listDistAereas, lineaActual):
-    return g(origen, intermedia, lineaActual) + h(intermedia, destino, listDistAereas)
+def f(origen, intermedia, destino, lineaActual):
+    lineaOrInter = lineaCompartida(origen, intermedia)
+    return g(origen, intermedia, lineaActual) + h(intermedia, destino, lineaOrInter)
 
 def findPath(origen, destino):
+    activos = PriorityQueue()
+    solucion = nx.Graph()
+    solucion.add_node(origen)
+    visitados = list()
+    visitados.append(origen)
+    lineaActual = 0
+    return findPathRec(origen, destino, activos, solucion, visitados, lineaActual)
+
+
+def findPathRec(nActual, nDestino, activos, solActual, visitados, lineaActual):
+    if nActual == nDestino:
+        return solActual
+    nuevosAbiertos = metro.adj[nActual]
+    for ady in nuevosAbiertos:
+        if not ady in visitados:
+            activos.put(f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady)])
+    seleccionado = activos.get()
+    siguienteEstacion = seleccionado[0]
+    visitados.append(siguienteEstacion)
+    solActual.add_node(siguienteEstacion)
+    solActual.add_edge(nActual, siguienteEstacion)
+    lineaActual = seleccionado[1]
+    return findPathRec(siguienteEstacion, nDestino, activos, solActual, visitados, lineaActual)
+
+def generarCamino(estOrigen, estDest):
+    arbol = findPath(estOrigen, estDest)
 
 
 
-def findPathRec(nOrigen, nDestino, distAereas, ):
