@@ -1,44 +1,54 @@
 import networkx as nx
 import csv
 
-distrows = list()
+frows = list()
+estrows = list()
+
+with open("tiempos.csv", "r") as file2:
+    reader2 = csv.reader(file2, delimiter=";")
+    for row in reader2:
+        frows.append(row)
+
+with open("estaciones.csv", "r") as file3:
+    reader3 = csv.reader(file3, delimiter=";")
+    for row in reader3:
+        estrows.append(row)
+
 distancias = dict()
+metro = nx.Graph()
+for i in range(0, len(estrows)):  # Añade nodos
+    nodo = estrows[i][0]
+    line = list()
+    for j in range(1, len(estrows[i])):
+        line.append(int(estrows[i][j]))
+    distancias[nodo] = list()
+    metro.add_node(nodo, linea=line)
+
+for j in range(0, len(frows)):  # Añade aristas
+    first = frows[j][0]
+    second = frows[j][1]
+    distance = float(frows[j][2])
+    if not metro.has_edge(second, first):
+        metro.add_edge(first, second, time=distance)
+
+
+distrows = list()
 with open("distancias.csv", "r") as file1:
-    reader1 = csv.reader(file1)
+    reader1 = csv.reader(file1, delimiter=";")
     for row in reader1:
         distrows.append(row)
 
 for k in range(0, len(distrows)):  # Añade al dictionary
     estfinal = distrows[k][0]
     estinicial = distrows[k][1]
-    distap = int(distrows[k][2])
+    distap = float(distrows[k][2])
     distancias[estfinal].append([estinicial, distap])
 
 
-frows = list()
-estrows = list()
-
-with open("distancias2.csv", "r") as file2:
-    reader2 = csv.reader(file2)
-    for row in reader2:
-        frows.append(row)
-
-with open("estaciones.csv", "r") as file3:
-    reader3 = csv.reader(file3)
-    for row in reader3:
-        estrows.append(row)
-
-metro = nx.Graph()
-for i in range(0, len(estrows)):  # Añade nodos
-    nodo = estrows[i][0]
-    line = list()
-    for j in range (1, len(estrows[i])):
-        line.append(int(estrows[i][j]))
-    metro.add_node(nodo, linea=line)
-
-for j in range(0, len(frows)):  # Añade aristas
-    first = frows[j][0]
-    second = frows[j][1]
-    distance = int(frows[j][2])
-    if not metro.has_edge(second, first):
-        metro.add_edge(first, second, time=distance)
+def buscarestaciones (estacionfin, estacionini):
+    res = float
+    for cad in distancias[estacionfin]:
+        if cad[0] == estacionini:
+            res = cad[1]
+            break
+    return res
