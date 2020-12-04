@@ -14,6 +14,7 @@ for k in range(0, len(distrows)):  # Añade al dictionary
     distap = int(distrows[k][2])
     distancias[estfinal].append([estinicial, distap])
 
+
 frows = list()
 estrows = list()
 
