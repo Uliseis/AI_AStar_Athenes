@@ -36,6 +36,7 @@ distrows = list()
 with open("distancias.csv", "r") as file1:
     reader1 = csv.reader(file1, delimiter=";")
     for row in reader1:
+    for row in reader1:
         distrows.append(row)
 
 for k in range(0, len(distrows)):  # Añade al dictionary
