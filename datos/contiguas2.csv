@@ -1,0 +1,19 @@
+Aghios Dimitrios;Dafni
+Egaleo;Eleonas
+Eleonas;Kerameikos;Egaleo
+Kerameikos;Monastiraki;Eleonas
+Evangelismos;Syntagma;Megaro Moussikis
+Megaro Moussikis;Evangelismos;Ambelokipi
+Ambelokipi;Megaro Moussikis;Panormou
+Panormou;Ambelokipi;Katehaki
+Katehaki;Panormou;Ethniki Amyna
+Ethniki Amyna;Katehaki;Holargos
+Holargos;Ethniki Amyna;Nomismatokopio
+Nomismatokopio;Holargos;Aghia Paraskevi
+Aghia Paraskevi;Nomismatokopio;Halandri
+Halandri;Aghia Paraskevi;Pallini
+Doukissis Plakentias;Halandri;Pallini
+Pallini;Doukissis Plakentias;Paiania - Kantza
+Paiania - Kantza;Pallini;Koropi
+Koropi;Paiania - Kantza;Airport
+Airport;Koropi
