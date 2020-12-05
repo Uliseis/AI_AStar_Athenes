@@ -107,6 +107,23 @@ def findPathRec(nActual, nDestino, activos, solActual, visitados, lineaActual):
 
 def generarCamino(estOrigen, estDest):
     arbol = findPath(estOrigen, estDest)
+    camino = list()
+    visitados = list()
+    camino = generarCaminoRec(estOrigen, estDest, camino, visitados, arbol)
+    return camino
 
-
+def generarCaminoRec(estOr, estDest, camino, visitados, arbol):
+    if estOr == estDest:
+        camino.append(estOr)
+        return camino
+    camino.append(estOr)
+    visitados.append(estOr)
+    sigEst = arbol.adj[estOr]
+    for sig in sigEst:
+        if not sig in visitados:
+            posCamino = generarCaminoRec(sig, estDest, camino, visitados, arbol)
+            if posCamino != None:
+                return posCamino
+    camino.pop()
+    return None
 
