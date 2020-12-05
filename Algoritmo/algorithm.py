@@ -13,7 +13,10 @@ def definirestructuras ():
     with open("tiempos.csv", "r") as file1:
         reader1 = csv.reader(file1, delimiter=" ")
         for row in reader1:
-            frows.append(row)
+            rowv = list()
+            for i in range(len(row)-1):
+                rowv.append(row[i])
+            frows.append(rowv)
 
     with open("estaciones.csv", "r") as file2:
         reader2 = csv.reader(file2, delimiter=";")
