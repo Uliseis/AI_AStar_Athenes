@@ -1,7 +1,37 @@
-Kiffisia;KAT;1 min
-KAT;Maroussi;2 min
-KAT;Kiffisia;2 min
-Maroussi;Neratziotissa;2 min
-Maroussi;KAT;2 min
-Neratziotissa;Irini;1 min
-Neratziotissa;Maroussi;2 min
+Kiffisia;KAT;2
+KAT;Maroussi;2
+KAT;Kiffisia;2
+Maroussi;Neratziotissa;2
+Maroussi;KAT;2
+Neratziotissa;Irini;1
+Neratziotissa;Maroussi;3
+Irini;Iraklio;3
+Irini;Neratziotissa;2
+Iraklio;Nea Ionia;2
+Iraklio;Irini;2
+Nea Ionia;Pefkakia;1
+Nea Ionia;Iraklio;2
+Pefkakia;Nea Ionia;2
+Ano Patissia;Aghios Eleftherios;2
+Aghios Eleftherios;Kato Patissia;2
+Aghios Eleftherios;Ano Patissia;1
+Kato Patissia;Aghios Nikolaos;1
+Kato Patissia;Aghios Eleftherios;2
+Aghios Nikolaos;Attiki;1
+Aghios Nikolaos;Kato Patissia;1
+Attiki;Victoria;3
+Attiki;Aghios Nikolaos;1
+Attiki;Sepolia;2
+Attiki;Larissa Station;2
+Victoria;Omonia;1
+Victoria;Attiki;2
+Omonia;Monastiraki;2
+Omonia;Victoria;1
+Omonia;Metaxourghio;1
+Omonia;Panepistimio;1
+Monastiraki;Thissio;1
+Monastiraki;Omonia;2
+Monastiraki;Kerameikos;1
+Monastiraki;Syntagma;1
+Thissio;Petralona;2
+Thissio;Monastiraki;1
