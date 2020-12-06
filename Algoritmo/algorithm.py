@@ -1,6 +1,7 @@
 import networkx as nx
 import csv
 from queue import PriorityQueue
+import matplotlib.pyplot as plt
 
 frows = list()
 estrows = list()
@@ -8,6 +9,7 @@ distrows = list()
 distancias = dict()
 metro = nx.Graph()
 TRANSBORDO = 7
+
 
 def definirestructuras ():
     with open("../datos/tiempos.csv", "r") as file1:
@@ -31,7 +33,6 @@ def definirestructuras ():
     for j in range(0, len(frows)):  # Añade aristas
         first = frows[j][0]
         second = frows[j][1]
-        print(first + " " + second)
         distance = float(frows[j][2])
         if not metro.has_edge(second, first):
             metro.add_edge(first, second, time=distance)
@@ -59,7 +60,7 @@ def buscarestaciones (estacionfin, estacionini):
 #Calcula la h de una estacion a la estacion destino
 def h(intermedia, destino, lineaAct):
     n = buscarestaciones(destino, intermedia)
-    if lineaAct != lineaCompartida(intermedia, destino):
+    if not lineaAct in lineasEntre(intermedia, destino):
         n = n + TRANSBORDO;
     return n
 
@@ -71,6 +72,16 @@ def lineaCompartida(inicio, final):
         if linea in lineasFinal:
             return linea
     return 0
+
+#Devuelve la lista de las lineas que hay entre dos estaciones
+def lineasEntre(inicio, final):
+    lineasOrigen = metro.nodes[inicio]['linea']
+    lineasFinal = metro.nodes[final]['linea']
+    lineas = list()
+    for linea in lineasOrigen:
+        if linea in lineasFinal:
+            lineas.append(linea)
+    return lineas
 
 #Devuelve el tiempo real entre dos estaciones contiguas en funcion de la
 #linea en la que estabamos
@@ -102,12 +113,12 @@ def findPathRec(nActual, nDestino, activos, solActual, visitados, lineaActual):
     nuevosAbiertos = metro.adj[nActual]
     for ady in nuevosAbiertos:
         if not ady in visitados:
-            activos.put((f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady)]))
+            activos.put((f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady), nActual]))
     seleccionado = activos.get()
     siguienteEstacion = seleccionado[1][0]
     visitados.append(siguienteEstacion)
     solActual.add_node(siguienteEstacion)
-    solActual.add_edge(nActual, siguienteEstacion)
+    solActual.add_edge(seleccionado[1][2], siguienteEstacion)
     lineaActual = seleccionado[1][1]
     return findPathRec(siguienteEstacion, nDestino, activos, solActual, visitados, lineaActual)
 
@@ -143,6 +154,7 @@ def calcularTiempo(camino):
             tiempo = tiempo + metro.edges[camino[i], camino[i + 1]]['time']
         else:
             tiempo = tiempo + metro.edges[camino[i], camino[i + 1]]['time'] + TRANSBORDO
+            lineaActual = lineaCompartida(camino[i], camino[i+1])
     return tiempo
 
 #Devuelve una lista con las lineas que se han utilizado entre cada estacion del camino
@@ -153,7 +165,9 @@ def lineasUtilizadas(camino):
     return lineas
 
 definirestructuras()
-camino = generarCamino("Kifissia", "Attiki")
+camino = generarCamino("Aghios Dimitrios", "Kifissia")
+#nx.draw(metro, with_labels=True, font_weight='bold')
+#plt.subplot(122)
 print(camino)
 tiempo = calcularTiempo(camino)
 print(tiempo)
