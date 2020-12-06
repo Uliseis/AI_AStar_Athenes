@@ -165,9 +165,9 @@ def lineasUtilizadas(camino):
     return lineas
 
 definirestructuras()
-camino = generarCamino("Aghios Dimitrios", "Kifissia")
-#nx.draw(metro, with_labels=True, font_weight='bold')
-#plt.subplot(122)
+camino = generarCamino("Dafni", "Koropi")
+nx.draw(metro, with_labels=True, font_weight='bold')
+plt.subplot(122)
 print(camino)
 tiempo = calcularTiempo(camino)
 print(tiempo)
