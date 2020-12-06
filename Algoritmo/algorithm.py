@@ -10,15 +10,12 @@ metro = nx.Graph()
 TRANSBORDO = 7
 
 def definirestructuras ():
-    with open("tiempos.csv", "r") as file1:
-        reader1 = csv.reader(file1, delimiter=" ")
+    with open("../datos/tiempos.csv", "r") as file1:
+        reader1 = csv.reader(file1, delimiter=";")
         for row in reader1:
-            rowv = list()
-            for i in range(len(row)-1):
-                rowv.append(row[i])
-            frows.append(rowv)
+            frows.append(row)
 
-    with open("estaciones.csv", "r") as file2:
+    with open("../datos/estaciones.csv", "r") as file2:
         reader2 = csv.reader(file2, delimiter=";")
         for row in reader2:
             estrows.append(row)
@@ -34,11 +31,12 @@ def definirestructuras ():
     for j in range(0, len(frows)):  # Añade aristas
         first = frows[j][0]
         second = frows[j][1]
+        print(first + " " + second)
         distance = float(frows[j][2])
         if not metro.has_edge(second, first):
             metro.add_edge(first, second, time=distance)
 
-    with open("distancias.csv", "r") as file3:
+    with open("../datos/distancias.csv", "r") as file3:
         reader3 = csv.reader(file3, delimiter=";")
         for row in reader3:
             distrows.append(row)
@@ -51,7 +49,7 @@ def definirestructuras ():
 
 #Busca las distancias aproximadas entre estaciones
 def buscarestaciones (estacionfin, estacionini):
-    res = float
+    res = 0.0
     for cad in distancias[estacionfin]:
         if cad[0] == estacionini:
             res = cad[1]
@@ -67,8 +65,8 @@ def h(intermedia, destino, lineaAct):
 
 #Devuelve la linea que hay entre dos estaciones contiguas
 def lineaCompartida(inicio, final):
-    lineasOrigen = metro[inicio]['linea']
-    lineasFinal = metro[final]['linea']
+    lineasOrigen = metro.nodes[inicio]['linea']
+    lineasFinal = metro.nodes[final]['linea']
     for linea in lineasOrigen:
         if linea in lineasFinal:
             return linea
@@ -77,9 +75,9 @@ def lineaCompartida(inicio, final):
 #Devuelve el tiempo real entre dos estaciones contiguas en funcion de la
 #linea en la que estabamos
 def g(origen, intermedia, lineaActual):
-    coste = metro.edges[origen][intermedia]['time']
-    listaLineas = metro[origen, intermedia]['linea']
-    if lineaActual != 0 and not lineaActual in listaLineas:
+    coste = metro.edges[origen, intermedia]['time']
+    linea = lineaCompartida(origen, intermedia)
+    if lineaActual != 0 and lineaActual != linea:
         coste = coste + TRANSBORDO
     return coste
 
@@ -104,13 +102,13 @@ def findPathRec(nActual, nDestino, activos, solActual, visitados, lineaActual):
     nuevosAbiertos = metro.adj[nActual]
     for ady in nuevosAbiertos:
         if not ady in visitados:
-            activos.put(f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady)])
+            activos.put((f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady)]))
     seleccionado = activos.get()
-    siguienteEstacion = seleccionado[0]
+    siguienteEstacion = seleccionado[1][0]
     visitados.append(siguienteEstacion)
     solActual.add_node(siguienteEstacion)
     solActual.add_edge(nActual, siguienteEstacion)
-    lineaActual = seleccionado[1]
+    lineaActual = seleccionado[1][1]
     return findPathRec(siguienteEstacion, nDestino, activos, solActual, visitados, lineaActual)
 
 #Dado un arbol recubridor devuelve el camino que une a origen y destino
@@ -141,15 +139,23 @@ def calcularTiempo(camino):
     lineaActual = lineaCompartida(camino[0], camino[1])
     tiempo = 0
     for i in range(len(camino)-1):
-        if lineaActual == lineaCompartida(metro[i], metro[i+1]):
-            tiempo = tiempo + metro.edges[camino[i]][camino[i + 1]]['tiempo']
+        if lineaActual == lineaCompartida(camino[i], camino[i+1]):
+            tiempo = tiempo + metro.edges[camino[i], camino[i + 1]]['time']
         else:
-            tiempo = tiempo + metro.edges[camino[i]][camino[i + 1]]['tiempo'] + TRANSBORDO
+            tiempo = tiempo + metro.edges[camino[i], camino[i + 1]]['time'] + TRANSBORDO
     return tiempo
 
 #Devuelve una lista con las lineas que se han utilizado entre cada estacion del camino
 def lineasUtilizadas(camino):
     lineas = list()
     for i in range(len(camino) - 1):
-        lineas.append(lineaCompartida(metro[i], metro[i+1]))
+        lineas.append(lineaCompartida(camino[i], camino[i+1]))
     return lineas
+
+definirestructuras()
+camino = generarCamino("Kifissia", "Attiki")
+print(camino)
+tiempo = calcularTiempo(camino)
+print(tiempo)
+lineas =  lineasUtilizadas(camino)
+print(lineas)

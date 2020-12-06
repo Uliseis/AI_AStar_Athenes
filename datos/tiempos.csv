@@ -1,6 +1,6 @@
-Kiffisia;KAT;2
+Kifissia;KAT;2
 KAT;Maroussi;2
-KAT;Kiffisia;2
+KAT;Kifissia;2
 Maroussi;Neratziotissa;2
 Maroussi;KAT;2
 Neratziotissa;Irini;1
@@ -57,10 +57,10 @@ Metaxourghio;Larissa Station;1
 Metaxourghio;Omonia;1
 Panepistimio;Omonia;1
 Panepistimio;Syntagma;1
-Syntagma;Panepistimio;
-Syntagma;Akropoli;
-Syntagma;Evangelismos;
-Syntagma;Monastiraki;
+Syntagma;Panepistimio;1
+Syntagma;Akropoli;1
+Syntagma;Evangelismos;1
+Syntagma;Monastiraki;1
 Akropoli;Syntagma;1
 Akropoli;Sygrou-Fix;1
 Sygrou-Fix;Akropoli;1
@@ -102,7 +102,7 @@ Doukissis Plakentias;Pallini;3
 Pallini;Doukissis Plakentias;3
 Pallini;Paiania - Kantza;2
 Paiania - Kantza;Pallini;2
-Paiania - Kantza;Koropi;
+Paiania - Kantza;Koropi;6
 Koropi;Paiania - Kantza;6
 Koropi;Airport;6
 Airport;Koropi;5
