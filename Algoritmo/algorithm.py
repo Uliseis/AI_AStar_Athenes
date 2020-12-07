@@ -48,6 +48,9 @@ def definirestructuras ():
         distap = float(distrows[k][2])
         distancias[estfinal].append([estinicial, distap])
 
+def listaNodos():
+    return metro.nodes
+
 #Busca las distancias aproximadas entre estaciones
 def buscarestaciones (estacionfin, estacionini):
     res = 0.0
