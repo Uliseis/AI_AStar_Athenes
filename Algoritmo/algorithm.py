@@ -12,12 +12,12 @@ TRANSBORDO = 7
 
 
 def definirestructuras ():
-    with open("../datos/tiempos.csv", "r") as file1:
+    with open("datos/tiempos.csv", "r") as file1:
         reader1 = csv.reader(file1, delimiter=";")
         for row in reader1:
             frows.append(row)
 
-    with open("../datos/estaciones.csv", "r") as file2:
+    with open("datos/estaciones.csv", "r") as file2:
         reader2 = csv.reader(file2, delimiter=";")
         for row in reader2:
             estrows.append(row)
@@ -37,7 +37,7 @@ def definirestructuras ():
         if not metro.has_edge(second, first):
             metro.add_edge(first, second, time=distance)
 
-    with open("../datos/distancias.csv", "r") as file3:
+    with open("datos/distancias.csv", "r") as file3:
         reader3 = csv.reader(file3, delimiter=";")
         for row in reader3:
             distrows.append(row)
@@ -165,9 +165,7 @@ def lineasUtilizadas(camino):
     return lineas
 
 definirestructuras()
-camino = generarCamino("Dafni", "Koropi")
-nx.draw(metro, with_labels=True, font_weight='bold')
-plt.subplot(122)
+camino = generarCamino("Airport", "Monastiraki")
 print(camino)
 tiempo = calcularTiempo(camino)
 print(tiempo)

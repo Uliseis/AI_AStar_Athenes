@@ -5,7 +5,7 @@ from Algoritmo.algorithm import definirestructuras, generarCamino, calcularTiemp
 def ventanaresultado():
     win2 = tk.Toplevel()
     win2.geometry("1280x960")
-    win2.iconbitmap("atena.ico")
+    #win2.iconbitmap("atena.ico")
     total = ""
     camino = generarCamino(e1.get(), e2.get())
     tiempo = calcularTiempo(camino)
@@ -31,7 +31,7 @@ master = tk.Tk()
 
 master.geometry("640x480")
 
-master.iconbitmap("atena.ico")
+#master.iconbitmap("atena.ico")
 
 master.title("Metro de Atenas")
 
@@ -48,8 +48,8 @@ tk.Label(master,
 e1 = tk.Entry(master)
 e2 = tk.Entry(master)
 
-e1.place(x=260, y=175)
-e2.place(x=260, y=200)
+e1.place(x=280, y=175)
+e2.place(x=280, y=200)
 
 tk.Button(master,
           text='Salir',
