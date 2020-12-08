@@ -1,0 +1,36 @@
+Petralona;Tavros;Thissio
+Tavros;Kallithea;Petralona
+Kallithea;Moschato;Tavros
+Moschato;Faliro;Kallithea
+Faliro;Piraeus;Moschato
+Piraeus;Faliro
+Aghios Antonios;Sepolia
+Sepolia;Attiki;Aghios Antonios
+Larissa Station;Attiki;Metaxourghio
+Metaxourghio;Larissa Station;Omonia
+Panepistimio;Omonia;Syntagma
+Syntagma;Panepistimio;Akropoli;Evangelismos;Monastiriaki
+Akropoli;Syntagma;Sygrou-Fix
+Sygrou-Fix;Akropoli;Neos Kosmos
+Neos Kosmos;Sygrou-Fix;Aghios Ioannis
+Aghios Ioannis;Neos Kosmos;Dafni
+Dafni;Aghios Ioannis;Aghios Dimitrios
+
+
+
+
+
+
+Irini;Iraklio;Neratziotissa
+Iraklio;Nea Ionia;Irini
+Nea Ionia;Pefkakia;Iraklio
+Pefkakia;Nea Ionia
+Ano Patissia;Aghios Eleftherios
+Aghios Eleftherios;Kato Patissia;Ano Patissia
+Kato Patissia;Aghios Nikolaos;Aghios Eleftherios
+Aghios Nikolaos;Attiki;Kato Patissia
+Attiki;Victoria;Aghios Nikolaos;Sepolia;Larissa Station
+Victoria;Omonia;Attiki
+Omonia;Monastiraki;Victoria;Metaxourghio;Panepistimio
+Monastiraki;Thissio;Omonia;Kerameikos;Syntagma
+Thissio;Petralona;Monastiraki

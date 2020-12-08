@@ -1,0 +1,108 @@
+Kifissia;KAT;2
+KAT;Maroussi;2
+KAT;Kifissia;2
+Maroussi;Neratziotissa;2
+Maroussi;KAT;2
+Neratziotissa;Irini;1
+Neratziotissa;Maroussi;3
+Irini;Iraklio;3
+Irini;Neratziotissa;2
+Iraklio;Nea Ionia;2
+Iraklio;Irini;2
+Nea Ionia;Pefkakia;1
+Nea Ionia;Iraklio;2
+Pefkakia;Perissos;1
+Pefkakia;Nea Ionia;2
+Perissos;Ano Patissia;1
+Ano Patissia;Aghios Eleftherios;2
+Aghios Eleftherios;Kato Patissia;2
+Aghios Eleftherios;Ano Patissia;1
+Kato Patissia;Aghios Nikolaos;1
+Kato Patissia;Aghios Eleftherios;2
+Aghios Nikolaos;Attiki;1
+Aghios Nikolaos;Kato Patissia;1
+Attiki;Victoria;3
+Attiki;Aghios Nikolaos;1
+Attiki;Sepolia;2
+Attiki;Larissa Station;2
+Victoria;Omonia;1
+Victoria;Attiki;2
+Omonia;Monastiraki;2
+Omonia;Victoria;1
+Omonia;Metaxourghio;1
+Omonia;Panepistimio;1
+Monastiraki;Thissio;1
+Monastiraki;Omonia;2
+Monastiraki;Kerameikos;1
+Monastiraki;Syntagma;2
+Thissio;Petralona;2
+Thissio;Monastiraki;1
+Petralona;Tavros;2
+Petralona;Thissio;2
+Tavros;Kallithea;1
+Tavros;Petralona;1
+Kallithea;Moschato;3
+Kallithea;Tavros;1
+Moschato;Faliro;2
+Moschato;Kallithea;3
+Faliro;Piraeus;3
+Faliro;Moschato;3
+Piraeus;Faliro;3
+Aghios Antonios;Sepolia;1
+Sepolia;Attiki;1
+Sepolia;Aghios Antonios;1
+Larissa Station;Attiki;1
+Larissa Station;Metaxourghio;1
+Metaxourghio;Larissa Station;1
+Metaxourghio;Omonia;1
+Panepistimio;Omonia;1
+Panepistimio;Syntagma;1
+Syntagma;Panepistimio;1
+Syntagma;Akropoli;1
+Syntagma;Evangelismos;1
+Syntagma;Monastiraki;2
+Akropoli;Syntagma;1
+Akropoli;Sygrou-Fix;1
+Sygrou-Fix;Akropoli;1
+Sygrou-Fix;Neos Kosmos;1
+Neos Kosmos;Sygrou-Fix;1
+Neos Kosmos;Aghios Ioannis;1
+Aghios Ioannis;Neos Kosmos;1
+Aghios Ioannis;Dafni;2
+Dafni;Aghios Ioannis;2
+Dafni;Aghios Dimitrios;1
+Aghios Dimitrios;Dafni;1
+Egaleo;Eleonas;1
+Eleonas;Kerameikos;2
+Eleonas;Egaleo;1
+Kerameikos;Monastiraki;1
+Kerameikos;Eleonas;2
+Evangelismos;Syntagma;1
+Evangelismos;Megaro Moussikis;1
+Megaro Moussikis;Evangelismos;1
+Megaro Moussikis;Ambelokipi;1
+Ambelokipi;Megaro Moussikis;1
+Ambelokipi;Panormou;2
+Panormou;Ambelokipi;2
+Panormou;Katehaki;2
+Katehaki;Panormou;2
+Katehaki;Ethniki Amyna;1
+Ethniki Amyna;Katehaki;1
+Ethniki Amyna;Holargos;1
+Holargos;Ethniki Amyna;1
+Holargos;Nomismatokopio;2
+Nomismatokopio;Holargos;1
+Nomismatokopio;Aghia Paraskevi;1
+Aghia Paraskevi;Nomismatokopio;1
+Aghia Paraskevi;Halandri;1
+Halandri;Aghia Paraskevi;1
+Halandri;Pallini;8
+Doukissis Plakentias;Halandri;1
+Doukissis Plakentias;Pallini;3
+Pallini;Doukissis Plakentias;3
+Pallini;Paiania - Kantza;2
+Paiania - Kantza;Pallini;2
+Paiania - Kantza;Koropi;6
+Koropi;Paiania - Kantza;6
+Koropi;Airport;6
+Airport;Koropi;5
