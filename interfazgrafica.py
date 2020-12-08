@@ -19,13 +19,13 @@ def controlErrores():
         errDest.pack()
         errDest.place(x=170, y=360)
         master.after(3500, errDest.destroy)
-        if origen == destino:
-            errA = tk.Label(master, text="Estacion de origen debe ser distinta la de destino", bg="red")
-            errA.config(font=("Arial", 11))
-            errA.pack()
-            errA.place(x=100, y=430)
-            master.after(3500, errA.destroy)
-            return
+    if origen == destino:
+        errA = tk.Label(master, text="Estacion de origen debe ser distinta la de destino", bg="red")
+        errA.config(font=("Arial", 11))
+        errA.pack()
+        errA.place(x=100, y=430)
+        master.after(3500, errA.destroy)
+        return
     if destino in estaciones and origen in estaciones:
         ventanaresultado(origen, destino)
 
@@ -35,22 +35,31 @@ def ventanaresultado(origen, destino):
     #win2.iconbitmap("atena.ico")
     total = ""
     camino = generarCamino(origen, destino)
+    largo = 200
+    longitud = len(camino)
+    largo += 15 * len(camino)
+    tama = "640x" + str(largo)
+    win2.geometry(tama)
+    win2.resizable(False, False)
     tiempo = calcularTiempo(camino)
     lineas = lineasUtilizadas(camino)
     for i in range(len(camino)):
         if i != len(camino)-1:
-            total += camino[i] + " - " + str(lineas[i]) + "\n"
+            total += camino[i] + "\n"
         else:
             total += camino[i]
 
-    tk.Label(win2, text="Camino entre ambas estaciones: \n" + total).place(x=75, y=75)
+    etiqCamino = tk.Label(win2, text="Camino entre ambas estaciones: \n")
+    etiqCamino.place(x=50, y=50)
+    etiqCamino.config(font=("Calibri", 16))
+    cam = tk.Label(win2, text=total)
+    cam.place(x=50, y=90)
+    cam.config(font=("Arial", 11))
     tk.Label(win2, text="Tiempo entre " + str(e1.get()) + " y " + str(e2.get()) + ": " + str(int(tiempo)) + " minutos.",
              fg="blue").place(x=295, y=75)
 
-    tk.Button(win2,
-              text='Salir',
-              command=win2.destroy).place(x=400, y=475)
-
+    botonSalir = tk.Button(win2, text='Salir', command=win2.destroy)
+    botonSalir.place(x=100, y=300)
 
 definirestructuras()
 master = tk.Tk()
