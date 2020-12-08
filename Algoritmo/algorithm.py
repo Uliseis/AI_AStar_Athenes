@@ -1,7 +1,7 @@
 import networkx as nx
 import csv
 from queue import PriorityQueue
-import matplotlib.pyplot as plt
+import heapq as hq
 
 frows = list()
 estrows = list()
@@ -101,7 +101,7 @@ def f(origen, intermedia, destino, lineaActual):
 
 #Encuentra el arbol recubridor de menor peso que contiene a origen y destino
 def findPath(origen, destino):
-    activos = PriorityQueue()
+    activos = []
     solucion = nx.Graph()
     solucion.add_node(origen)
     visitados = list()
@@ -116,8 +116,8 @@ def findPathRec(nActual, nDestino, activos, solActual, visitados, lineaActual):
     nuevosAbiertos = metro.adj[nActual]
     for ady in nuevosAbiertos:
         if not ady in visitados:
-            activos.put((f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady), nActual]))
-    seleccionado = activos.get()
+            hq.heappush(activos,(f(nActual, ady, nDestino, lineaActual), [ady, lineaCompartida(nActual, ady), nActual]))
+    seleccionado = hq.heappop(activos)
     siguienteEstacion = seleccionado[1][0]
     visitados.append(siguienteEstacion)
     solActual.add_node(siguienteEstacion)

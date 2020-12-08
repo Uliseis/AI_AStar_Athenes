@@ -1,6 +1,7 @@
+from tkinter import *
 import tkinter as tk
 from Algoritmo.algorithm import definirestructuras, generarCamino, calcularTiempo, lineasUtilizadas, listaNodos
-import time
+import os
 
 
 def controlErrores():
@@ -48,18 +49,61 @@ def ventanaresultado(origen, destino):
             total += camino[i] + "\n"
         else:
             total += camino[i]
-
+    lin =""
+    linea = 0
+    for i in range(len(lineas)):
+        if linea == 0:
+            if lineas[i] == 1:
+                lin += "Linea " + str(lineas[i]) + '\n'
+                linea = lineas[i]
+            elif lineas[i] == 2:
+                lin += "\tLinea " + str(lineas[i]) + '\n'
+                linea = lineas[i]
+            else:
+                lin += "\t\tLinea " + str(lineas[i]) + '\n'
+                linea = lineas[i]
+        elif linea != lineas[i]:
+            if lineas[i] == 1:
+                lin += "Linea " + str(lineas[i]) + '\n'
+                linea = lineas[i]
+            elif lineas[i] == 2:
+                lin += "\tLinea " + str(lineas[i]) + '\n'
+                linea = lineas[i]
+            else:
+                lin += "\t\tLinea " + str(lineas[i]) + '\n'
+                linea = lineas[i]
+        else:
+            if lineas[i] == 1:
+                lin += "   |" + '\n'
+            elif lineas[i] == 2:
+                lin += "\t   |" + '\n'
+            else:
+                lin += "\t\t   |" + '\n'
+    if lineas[len(lineas) - 1] == 1:
+        lin += "   |"
+    elif lineas[len(lineas) - 1] == 2:
+        lin += "\t   |"
+    else:
+        lin += "\t\t   |"
     etiqCamino = tk.Label(win2, text="Camino entre ambas estaciones: \n")
-    etiqCamino.place(x=50, y=50)
+    etiqCamino.place(x=40, y=30)
     etiqCamino.config(font=("Calibri", 16))
-    cam = tk.Label(win2, text=total)
-    cam.place(x=50, y=90)
+
+    cam = tk.Label(win2, text=total, justify=LEFT)
+    cam.place(x=50, y=70)
     cam.config(font=("Arial", 11))
-    tk.Label(win2, text="Tiempo entre " + str(e1.get()) + " y " + str(e2.get()) + ": " + str(int(tiempo)) + " minutos.",
-             fg="blue").place(x=295, y=75)
+
+    etiqLin = tk.Label(win2, text=lin, justify=LEFT)
+    etiqLin.place(x=300, y=70)
+    etiqLin.config(font=("Arial", 11))
+
+    tiemp = tk.Label(win2, text="Trayecto entre " + origen + " y " + destino + ": " + os.linesep + str(int(tiempo))
+                                + " minutos", fg="blue")
+    tiemp.place(x=50, y=largo-100)
+    tiemp.config(font=("Calibri", 13))
 
     botonSalir = tk.Button(win2, text='Salir', command=win2.destroy)
-    botonSalir.place(x=100, y=300)
+    botonSalir.place(x=530, y=largo-60)
 
 definirestructuras()
 master = tk.Tk()
