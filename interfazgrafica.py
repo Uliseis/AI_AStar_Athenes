@@ -7,34 +7,34 @@ def controlErrores():
     origen = e1.get()
     destino = e2.get()
     estaciones = listaNodos()
-    if origen == destino:
-        errA = tk.Label(master, text="Estacion de origen debe ser distinta la de destino", bg="red")
-        errA.config(font=("Arial", 11))
-        errA.pack()
-        errA.place(x=100, y=430)
-        master.after(4000, errA.destroy)
-        return
     if not origen in estaciones:
         errOr = tk.Label(master, text="Estacion de origen incorrecta", bg="red")
         errOr.config(font=("Arial", 11))
         errOr.pack()
         errOr.place(x=170, y=330)
-        master.after(4000, errOr.destroy)
+        master.after(3500, errOr.destroy)
     if not destino in estaciones:
         errDest = tk.Label(master, text="Estacion de destino incorrecta", bg="red")
         errDest.config(font=("Arial", 11))
         errDest.pack()
         errDest.place(x=170, y=360)
-        master.after(4000, errDest.destroy)
+        master.after(3500, errDest.destroy)
+        if origen == destino:
+            errA = tk.Label(master, text="Estacion de origen debe ser distinta la de destino", bg="red")
+            errA.config(font=("Arial", 11))
+            errA.pack()
+            errA.place(x=100, y=430)
+            master.after(3500, errA.destroy)
+            return
     if destino in estaciones and origen in estaciones:
-        ventanaresultado()
+        ventanaresultado(origen, destino)
 
-def ventanaresultado():
+def ventanaresultado(origen, destino):
     win2 = tk.Toplevel()
     win2.geometry("640x560")
     #win2.iconbitmap("atena.ico")
     total = ""
-    camino = generarCamino(e1.get(), e2.get())
+    camino = generarCamino(origen, destino)
     tiempo = calcularTiempo(camino)
     lineas = lineasUtilizadas(camino)
     for i in range(len(camino)):
@@ -62,16 +62,13 @@ master.resizable(False, False)
 
 master.title("Metro de Atenas")
 
-text = tk.Text(master)
-text.configure(font=("Courier", 24, "italic"))
-
 imagen = tk.PhotoImage(file="metro.gif")
 tk.Label(master, image=imagen).place(x=320-(imagen.width()/2), y=25)
 
 intro = tk.Label(master,
          text="Introduce estaciones para las cuales quieres\nobtener el tiempo de desplazamiento")
 intro.place(x=115, y=155)
-intro.config(font=("Arial", 16))
+intro.config(font=("Calibri", 16))
 
 ori = tk.Label(master, text="Estacion de origen:")
 ori.place(x=130, y=250)

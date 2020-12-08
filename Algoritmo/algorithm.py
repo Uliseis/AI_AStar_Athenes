@@ -166,11 +166,3 @@ def lineasUtilizadas(camino):
     for i in range(len(camino) - 1):
         lineas.append(lineaCompartida(camino[i], camino[i+1]))
     return lineas
-
-definirestructuras()
-camino = generarCamino("Airport", "Monastiraki")
-print(camino)
-tiempo = calcularTiempo(camino)
-print(tiempo)
-lineas =  lineasUtilizadas(camino)
-print(lineas)
