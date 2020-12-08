@@ -1,11 +1,11 @@
 from tkinter import *
 import tkinter as tk
-import os
-import sys
+#  import os
+#  import sys
 from Algoritmo.algorithm import definirestructuras, generarCamino, calcularTiempo, lineasUtilizadas, listaNodos
 import os
 
-os.chdir(sys._MEIPASS)
+#  os.chdir(sys._MEIPASS)
 
 def controlErrores():
     origen = e1.get()
