@@ -38,7 +38,7 @@ def ventanaresultado(origen, destino):
     camino = generarCamino(origen, destino)
     largo = 200
     longitud = len(camino)
-    largo += 15 * len(camino)
+    largo += 20 * len(camino)
     tama = "640x" + str(largo)
     win2.geometry(tama)
     win2.resizable(False, False)

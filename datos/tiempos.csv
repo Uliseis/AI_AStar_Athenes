@@ -34,7 +34,7 @@ Omonia;Panepistimio;1
 Monastiraki;Thissio;1
 Monastiraki;Omonia;2
 Monastiraki;Kerameikos;1
-Monastiraki;Syntagma;1
+Monastiraki;Syntagma;2
 Thissio;Petralona;2
 Thissio;Monastiraki;1
 Petralona;Tavros;2
@@ -60,7 +60,7 @@ Panepistimio;Syntagma;1
 Syntagma;Panepistimio;1
 Syntagma;Akropoli;1
 Syntagma;Evangelismos;1
-Syntagma;Monastiraki;1
+Syntagma;Monastiraki;2
 Akropoli;Syntagma;1
 Akropoli;Sygrou-Fix;1
 Sygrou-Fix;Akropoli;1
