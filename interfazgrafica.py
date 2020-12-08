@@ -1,8 +1,11 @@
 from tkinter import *
 import tkinter as tk
+import os
+import sys
 from Algoritmo.algorithm import definirestructuras, generarCamino, calcularTiempo, lineasUtilizadas, listaNodos
 import os
 
+os.chdir(sys._MEIPASS)
 
 def controlErrores():
     origen = e1.get()
@@ -33,7 +36,7 @@ def controlErrores():
 def ventanaresultado(origen, destino):
     win2 = tk.Toplevel()
     win2.geometry("640x560")
-    #win2.iconbitmap("atena.ico")
+    win2.iconbitmap("atena.ico")
     total = ""
     camino = generarCamino(origen, destino)
     largo = 200
@@ -111,7 +114,7 @@ master = tk.Tk()
 master.geometry("640x480")
 master.resizable(False, False)
 
-#master.iconbitmap("atena.ico")
+master.iconbitmap("atena.ico")
 
 master.title("Metro de Atenas")
 
